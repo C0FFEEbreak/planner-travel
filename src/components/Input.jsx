@@ -11,6 +11,7 @@ export default function Input({ valueProp, changeProp }) {
       type="text"
       onChange={handleChange}
       value={valueProp}
+      placeholder="What would you like to do?"
     />
   );
 }

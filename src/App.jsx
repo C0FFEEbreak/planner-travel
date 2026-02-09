@@ -60,26 +60,67 @@ export default function MyPlanner() {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <>
-      <div className="container">
-        <header>
-          <h1>Travel Tracker</h1>
-        </header>
-        <main>
-          <main>
-            <Input valueProp={myInputVar} changeProp={myInputFunc} />
-            <DatePicker valueProp={myDateVar} changeProp={myDateFunc} minDate={today} />
-            <Dropdown valueProp={myTransVar} changeProp={myTransFunc} listOpt={myTransOpt} />
-            <Dropdown valueProp={myActVar} changeProp={myActFunc} listOpt={myActOpt} />
-            <button onClick={myAddFunc}>Add</button>
-            <StatsBoard total={totalCount} completed={completedCount} active={activeCount} />
-            <DestinationList listProp={myListVar} toggleProp={myToggleVisitedStatus} deleteProp={deleteItem} />
-          </main>
-          <footer>
-            <p>© 2026 Portfolio Project | Built with React</p>
-          </footer>
-        </main>
-      </div>
-    </>
+    <div className="app-wrapper">
+      <header className="category-box title-bg">
+        <h1>Travel Tracker</h1>
+      </header>
+
+      <main className="main-content">
+        <section className="category-box interaction-bg">
+          <Input valueProp={myInputVar} changeProp={myInputFunc} />
+
+          <div className="input-group">
+            <div className="field-wrapper">
+              <label>Transportation</label>
+              <Dropdown
+                valueProp={myTransVar}
+                changeProp={myTransFunc}
+                listOpt={myTransOpt}
+              />
+            </div>
+
+            <div className="field-wrapper">
+              <label>Activity</label>
+              <Dropdown
+                valueProp={myActVar}
+                changeProp={myActFunc}
+                listOpt={myActOpt}
+              />
+            </div>
+
+            <div className="field-wrapper">
+              <label>Travel Date</label>
+              <DatePicker
+                valueProp={myDateVar}
+                changeProp={myDateFunc}
+                minDate={today}
+              />
+            </div>
+          </div>
+
+          <button onClick={myAddFunc}>Add</button>
+        </section>
+
+        <section className="category-box data-bg">
+          <StatsBoard
+            total={totalCount}
+            completed={completedCount}
+            active={activeCount}
+          />
+        </section>
+
+        <section className="category-box list-bg">
+          <DestinationList
+            listProp={myListVar}
+            toggleProp={myToggleVisitedStatus}
+            deleteProp={deleteItem}
+          />
+        </section>
+      </main>
+
+      <footer>
+        <p>© 2026 Portfolio Project | Built with React</p>
+      </footer>
+    </div>
   );
 }
