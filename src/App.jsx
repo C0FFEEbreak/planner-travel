@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./components/Input";
 import DatePicker from "./components/DatePicker";
 import Dropdown from "./components/Dropdown";
@@ -11,7 +11,10 @@ export default function MyPlanner() {
   const [myDateVar, myDateFunc] = useState("");
   const [myTransVar, myTransFunc] = useState("");
   const [myActVar, myActFunc] = useState("");
-  const [myListVar, myListFunc] = useState([]);
+  const [myListVar, myListFunc] = useState(() => {
+  const saved = localStorage.getItem("travelList");
+    return saved ? JSON.parse(saved) : []; // Line 1-2: Load data
+  });
 
   const myTransOpt = [
     { id: 1, label: "car" },
@@ -59,11 +62,18 @@ export default function MyPlanner() {
 
   const today = new Date().toISOString().split("T")[0];
 
+  useEffect(() => {
+    localStorage.setItem("travelList", JSON.stringify(myListVar));
+  }, [myListVar]);
+
   return (
     <div className="app-wrapper">
-      <header className="category-box title-bg">
-        <h1>Travel Planner</h1>
-      </header>
+<header className="category-box title-bg hero-header">
+  <div className="hero-content">
+    <h1>Travel Planner</h1>
+    <p>Plan trips, activities, and moments in one place</p>
+  </div>
+</header>
 
       <main className="main-content">
         <section className="category-box interaction-bg">
