@@ -1,26 +1,39 @@
 // Statsboard.jsx
 import React from "react";
 
-export default function Input({ total, completed, active }) {
-
-
+// StatsBoard.jsx
+export default function StatsBoard({ total, completed, active }) {
   return (
-    <div className="stats-row" style={{ display: 'flex', gap: '20px', marginBottom: '20px' }}>
-        <div className="stat-box">
+    <div className="stats-row">
+      {/* Total Card */}
+      <div className="stat-box">
+        <div className="stat-header-strip total-strip">
           <p>Total</p>
+        </div>
+        <div className="stat-content">
           <h3>{total}</h3>
         </div>
+      </div>
 
-        <div className="stat-box">
+      {/* Completed Card */}
+      <div className="stat-box">
+        <div className="stat-header-strip completed-strip">
           <p>Completed</p>
+        </div>
+        <div className="stat-content">
           <h3>{completed}</h3>
         </div>
+      </div>
 
-        <div className="stat-box">
+      {/* Active Card */}
+      <div className="stat-box">
+        <div className="stat-header-strip active-strip">
           <p>Active</p>
+        </div>
+        <div className="stat-content">
           <h3>{active}</h3>
         </div>
+      </div>
     </div>
-
   );
 }

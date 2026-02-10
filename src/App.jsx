@@ -19,9 +19,9 @@ export default function MyPlanner() {
     { id: 3, label: "train" },
   ];
   const myActOpt = [
-    { id: 1, label: "snorkel" },
-    { id: 2, label: "shopping" },
-    { id: 3, label: "dining" },
+    { id: 1, label: "public lake" },
+    { id: 2, label: "park forest" },
+    { id: 3, label: "city downtown" },
   ];
 
   const myAddFunc = () => {
@@ -62,7 +62,7 @@ export default function MyPlanner() {
   return (
     <div className="app-wrapper">
       <header className="category-box title-bg">
-        <h1>Travel Tracker</h1>
+        <h1>Travel Planner</h1>
       </header>
 
       <main className="main-content">
@@ -98,7 +98,7 @@ export default function MyPlanner() {
             </div>
           </div>
 
-          <button onClick={myAddFunc}>Add</button>
+          <button className="add-btn" onClick={myAddFunc}>Add</button>
         </section>
 
         <section className="category-box data-bg">

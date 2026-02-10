@@ -37,7 +37,7 @@ export default function DestinationCard({ itemProp, toggleProp, deleteProp }) {
       {/* Column 2: Delete Button */}
       <div className="card-action">
         <button className="delete-icon-btn" onClick={() => deleteProp(itemProp.id)}>
-          Delete
+          <i className="fa-regular fa-trash-can"></i>
         </button>
       </div>
     </li>
