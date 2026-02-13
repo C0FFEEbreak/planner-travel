@@ -1,18 +1,15 @@
 /* --- 1. GLOBAL & WRAPPER --- */
-:root {
-  --primary-text: #161818;
-  --brand-blue: #77B9EB;
-  --shadow-blue: #5AA8E0;
-}
-
 .app-wrapper {
-  max-width: 960px; 
+  max-width: 960px;
   margin: 0 auto;
-  padding: 40px 20px; 
+  padding: 40px 20px;
   display: flex;
   flex-direction: column;
-  gap: 24px; 
-  background-color: #F4F7F5; 
+  gap: 24px;
+  background-color: #F4F7F5;
+  box-shadow: 
+    12px 0 24px -16px rgb(15, 15, 15),
+    -12px 0 24px -16px rgb(15, 15, 15);
 }
 
 .main-content {
@@ -23,7 +20,7 @@
 
 /* --- 2. CONTAINERS --- */
 .category-box {
-  padding: 24px; 
+  padding: 12px; 
   border-radius: 16px; 
   background-color: #FFFFFF; 
   border: 1px solid #D1D9D9;
@@ -31,9 +28,9 @@
 }
 
 .title-bg { border: none; text-align: center; }
-.interaction-bg { background-color: #f9f9f9; }
+.interaction-bg { background-color: #f0f0f0; }
 .data-bg { background-color: #f0f0f0; }
-.list-bg { background-color: #ffffff; }
+.list-bg { background-color: #f0f0f0; }
 
 /* --- 3. INPUTS & SELECTS --- */
 .field-wrapper {
@@ -48,8 +45,8 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--primary-text); 
-  margin-bottom: 4px;
+  color: var(--primary-text);
+  margin: 16px 0 4px;
 }
 
 input, select {
@@ -86,7 +83,7 @@ select {
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 4px 0px var(--shadow-blue);
-  margin-top: 10px;
+  margin: 32px 0 12px;
 }
 
 .add-btn:hover { background-color: #89CFF0; transform: translateY(-1px); box-shadow: 0 5px 0px var(--shadow-blue); }
@@ -117,7 +114,7 @@ select {
 
 .stat-box {
   flex: 1;
-  background-color: #FDFDFD;
+  background-color: #FFF;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid #D1D9D9;
@@ -128,7 +125,7 @@ select {
 
 .stat-header-strip {
   height: 24px;
-  background-color: #E3D26F;
+  background-color: #AD725C;
   display: flex; align-items: center; justify-content: center;
 }
 
@@ -174,8 +171,18 @@ input[type="checkbox"]:checked { transform: scale(1.1); }
 /* --- 3. INPUTS & SELECTS (The Row/Column Logic) --- */
 .input-group {
   display: flex;
-  flex-direction: column; /* Stacked on mobile */
+  flex-direction: column;
   gap: 15px;
+}
+
+input[type="date"] {
+  width: 100%;
+  appearance: none; 
+  -webkit-appearance: none;
+  height: 48px; 
+  background-color: #fff;
+  /* Fix calendar icon doesn't push width */
+  box-sizing: border-box; 
 }
 
 @media (min-width: 600px) {
@@ -185,7 +192,7 @@ input[type="checkbox"]:checked { transform: scale(1.1); }
   }
 
   .input-group > .field-wrapper {
-    flex: 1; /* This forces them to take up equal column width */
+    flex: 1;
   }
 }
 
@@ -205,7 +212,7 @@ input[type="checkbox"]:checked { transform: scale(1.1); }
 }
 
 .stat-box {
-  flex: 1; /* This ensures all 3 stat boxes are equal columns */
+  flex: 1; /* All 3 stat boxes are equal columns */
   background-color: #FDFDFD;
   border-radius: 12px;
   overflow: hidden;
@@ -213,4 +220,52 @@ input[type="checkbox"]:checked { transform: scale(1.1); }
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+/* Accessibility */
+input:focus, select:focus, button:focus {
+  outline: 3px solid var(--brand-blue);
+  outline-offset: 2px;
+  box-shadow: 0 0 8px rgba(119, 185, 235, 0.5);
+}
+
+.custom-checkbox:focus {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+
+.hero-header {
+  padding: 48px 24px;
+  border-radius: 20px;
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("./assets/travel-hero.jpg") center / cover no-repeat;
+  color: #fff;
+}
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+}
+.hero-header p {
+  font-size: 1rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+.hero-header h1,
+.hero-header p {
+  text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: #718096;
+  font-size: 0.85rem;
+  margin-top: 20px;
 }

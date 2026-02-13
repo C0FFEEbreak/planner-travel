@@ -13,7 +13,7 @@ export default function MyPlanner() {
   const [myActVar, myActFunc] = useState("");
   const [myListVar, myListFunc] = useState(() => {
   const saved = localStorage.getItem("travelList");
-    return saved ? JSON.parse(saved) : []; // Line 1-2: Load data
+    return saved ? JSON.parse(saved) : [];
   });
 
   const myTransOpt = [
@@ -71,7 +71,7 @@ export default function MyPlanner() {
 <header className="category-box title-bg hero-header">
   <div className="hero-content">
     <h1>Travel Planner</h1>
-    <p>Plan trips, activities, and moments in one place</p>
+    <p>Plan your trips, activities, and transportation in one place</p>
   </div>
 </header>
 
