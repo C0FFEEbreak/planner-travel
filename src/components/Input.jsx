@@ -1,4 +1,3 @@
-// Input.jsx
 import React from "react";
 
 export default function Input({ valueProp, changeProp }) {

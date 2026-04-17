@@ -67,13 +67,10 @@ export default function MyPlanner() {
   }, [myListVar]);
 
   return (
-    <div className="app-wrapper">
-<header className="category-box title-bg hero-header">
-  <div className="hero-content">
+<div className="app-wrapper">
+<header className="category-box title-bg">
     <h1>Travel Planner</h1>
-    <p>Plan your trips, activities, and transportation in one place</p>
-  </div>
-</header>
+  </header>
 
       <main className="main-content">
         <section className="category-box interaction-bg">
@@ -127,7 +124,7 @@ export default function MyPlanner() {
           />
         </section>
       </main>
-
+      <section className="footer-image"></section>
       <footer>
         <p>© 2026 Portfolio Project | Built with React</p>
       </footer>
