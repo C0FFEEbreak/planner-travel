@@ -1,4 +1,3 @@
-// DestinationCard.jsx
 export default function DestinationCard({ itemProp, toggleProp, deleteProp }) {
   
   const displayDate = itemProp.date 
@@ -11,11 +10,17 @@ export default function DestinationCard({ itemProp, toggleProp, deleteProp }) {
       <div className="card-info">
         {/* Row 1: Checkbox and Title */}
         <div className="card-row-1">
-          <input 
-            type="checkbox" 
+          <input
+            type="checkbox"
             className="custom-checkbox"
-            checked={itemProp.isVisited} 
-            onChange={() => toggleProp(itemProp.id)} 
+            checked={itemProp.isVisited}
+            onChange={() => toggleProp(itemProp.id)}
+            onKeyDown={(event) => {
+              if (event.key === "Enter") {
+                event.preventDefault();
+                toggleProp(itemProp.id);
+              }
+            }}
           />
           <span className={`destination-text ${itemProp.isVisited ? 'completed' : ''}`}>
             {itemProp.text}
